@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
+    <link href="../node_modules/toastr/build/toastr.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+
+    <style type="text/css">
+        /**
+        * Hide when Angular is not yet loaded and initialized
+        */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+        </style>
+
+</head>
+
+<body ng-app="saiposApp" layout="column" ng-controller="TarefaController as ctrl" ng-cloak>
+  
+  <md-toolbar layout="row" layout-align="start center" class="md-whiteframe-3dp" >
+    <md-icon md-svg-icon="saipos" style="width: 254px; height: 64px; margin: 0;" ></md-icon>
+  </md-toolbar>
+  
+  <div flex layout="row">
+    
+    <md-content flex id="content">
+      <div ng-include="'./src/tarefas/views/tarefa.list.html'"></div>
+      <div style="display: flex;" layout-align="end end">
+        
+        <md-button class="md-fab button-add md-raised md-accent" ng-click="ctrl.adicionarTarefa()">
+          <md-icon md-svg-icon="plus"></md-icon>
+        </md-button>    
+        
+      </div>
+        </md-content>
+      </div>
+      
+      <script src="../node_modules/angular/angular.js"></script>
+      <script src="../node_modules/angular-animate/angular-animate.js"></script>
+      <script src="../node_modules/angular-aria/angular-aria.js"></script>
+      <script src="../node_modules/angular-resource/angular-resource.js"></script>
+      <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="../node_modules/toastr/build/toastr.min.js"></script>
+      <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+      
+      <script src="./src/tarefas/Tarefa.js"></script>
+      <script src="./src/tarefas/controllers/TarefaController.js"></script>
+      <script src="./src/tarefas/services/TarefaService.js"></script>
+      
+      <script type="text/javascript">
+
+          angular
+              .module('saiposApp', ['ngMaterial', 'Tarefa'])
+              .config(function($mdThemingProvider, $mdIconProvider){
+
+                  $mdIconProvider
+                      .defaultIconSet("./assets/svg/saipos.svg", 128)
+                      .icon("saipos" , "./assets/svg/saipos.svg", 512)
+                      .icon("usuario" , "./assets/svg/user.svg", 12)
+                      .icon("sad-face" , "./assets/svg/sad-face.svg", 24)
+                      .icon("annulled-face", "./assets/svg/sad.svg ", 24)
+                      .icon("trash", "./assets/svg/delete.svg" , 24)
+                      .icon("exclamation", "./assets/svg/exclamation.svg" , 24)
+                      .icon("plus", "./assets/svg/add.svg" , 24);
+
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('amber')
+                          .accentPalette('blue');
+
+              });
+
+    </script>
+
+  </body>
+</html>

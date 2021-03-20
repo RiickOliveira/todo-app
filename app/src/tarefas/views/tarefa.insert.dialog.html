@@ -1,0 +1,59 @@
+<md-dialog flex="30" layout="column">
+  
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Nova Tarefa</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+          <md-icon md-svg-icon=""></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content flex>     
+      <form name="ctrl.tarefaForm">
+
+        <div layout="column" class="p-20">
+  
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Tarefa</label>
+            <input name="tarefa" required ng-model="ctrl.tarefa.tarefa">
+            <div ng-messages="ctrl.tarefaForm.tarefa.$error">
+              <div ng-message="required">A descrição da tarefa é obrigatória</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Responsável</label>
+            <input required ng-model="ctrl.tarefa.responsavel" name="responsavel">
+            <div ng-messages="ctrl.tarefaForm.responsavel.$error">
+              <div ng-message="required">O responsável da tarefa é obrigatório</div>
+            </div>
+          </md-input-container>
+  
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Email responsável</label>
+            <input required ng-model="ctrl.tarefa.email" name="email" type="email">
+            <div ng-messages="ctrl.tarefaForm.email.$error">
+              <div ng-message="required">O email do responsável da tarefa é obrigatório</div>
+            </div>
+            <div class="email-sugestao" ng-if="ctrl.emailSugestao">
+              <span>Você quis dizer: <u ng-click="ctrl.alteraEmail()">{{ ctrl.emailSugestao }}</u> ?</span>
+            </div>
+          </md-input-container>
+  
+        </div>
+        
+      </form>
+      
+    </md-dialog-content>
+    
+    <md-dialog-actions layout="row">      
+      <md-button ng-click="ctrl.cancelar()">Cancelar</md-button>
+      <md-button ng-if="!ctrl.validandoEmail" ng-disabled="ctrl.tarefaForm.$invalid" class="md-raised md-primary" 
+                 ng-click="ctrl.verificaEmail()">Salvar</md-button>
+      <md-progress-circular class="ml-10" ng-if="ctrl.validandoEmail"></md-progress-circular>           
+
+    </md-dialog-actions>
+  
+</md-dialog>

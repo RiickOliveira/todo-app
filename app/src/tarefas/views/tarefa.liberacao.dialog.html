@@ -1,0 +1,34 @@
+<md-dialog flex="25" layout="column">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Liberar tarefa</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+          <md-icon md-svg-icon=""></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content flex>     
+      <form name="tarefaForm">
+        <div layout="column" class="p-20">
+  
+          <md-input-container style="margin-top:50px">
+            <label>Informe sua senha:</label>
+            <input type="password" name="pass" ng-model="ctrl.senhaLiberacao" required md-no-asterisk >
+            <div ng-messages="tarefaForm.pass.$error">
+              <div ng-message="required">Campo requerido</div>
+            </div>        
+         </md-input-container>  
+         
+        </div>      
+      </form>
+      
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">      
+      <md-button ng-click="ctrl.cancelar()">Cancelar</md-button>
+      <md-button ng-disabled="tarefaForm.$invalid" class="md-raised md-primary" ng-click="ctrl.confirmar()">Confirmar</md-button>
+
+    </md-dialog-actions>
+</md-dialog>

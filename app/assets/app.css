@@ -1,0 +1,150 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #eee;
+}
+
+/* Area principal */
+.p-10  {padding: 10px;}
+.p-15 {padding: 15px;}
+.p-20 {padding: 20px;}
+
+.ml-5  { margin-left: 5px;}
+.ml-10 { margin-left: 10px;}
+.ml-15 { margin-left: 15px;}
+.ml-20 { margin-left: 20px;}
+.ml-25 { margin-left: 25px;}
+
+.mr-5  { margin-right: 5px;}
+.mr-10 { margin-right: 10px;}
+.mr-15 { margin-right: 15px;}
+.mr-20 { margin-right: 20px;}
+.mr-25 { margin-right: 25px;}
+
+.mt-5  { margin-top: 5px;}
+.mt-10 { margin-top: 10px;}
+.mt-15 { margin-top: 15px;}
+.mt-20 { margin-top: 20px;}
+.mt-25 { margin-top: 25px;}
+.mt-50 { margin-top: 50px;}
+.mt-100 { margin-top: 100px;}
+
+.mb-5  { margin-bottom: 5px;}
+.mb-10 { margin-bottom: 10px;}
+.mb-15 { margin-bottom: 15px;}
+.mb-20 { margin-bottom: 20px;}
+.mb-25 { margin-bottom: 25px;}
+
+.text-center { text-align: center;}
+
+#content {
+  overflow: hidden;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#content  {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+}
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+  padding: 10px;
+  margin-bottom: 10px; 
+}
+
+.button-add {
+
+}
+
+.card-tarefa {
+  padding: 20px;
+  border-radius: 7px;
+  margin-top: 15px;
+}
+
+.card-tarefa:hover {
+  background-color: #eaeaea;
+}
+
+.card-tarefa-concluido {
+  text-decoration: line-through;
+}
+
+.list-tarefa {
+    overflow-y: scroll;
+    height: calc(100vh - 210px);
+}
+
+.header-buttons {
+  align-items: center;
+}
+
+.page-tarefa {
+  width: 60%;
+  margin: 0 auto 0 auto;
+}
+
+.icon-card-size {
+  width: 16px;
+  height: 16px;
+  min-height: 16px;
+  min-width: 16px;
+  color: #757575;
+  cursor: pointer;
+}
+
+.icon-tarefa-size {
+  margin-top: 20px;
+  min-height: 160px;
+  min-width: 200px;
+  color: #757575;
+}
+
+.user-detail {
+  display: flex;
+  align-items: flex-end;
+}
+
+.texto-cinza-claro {
+  color: #BDBDBD;
+}
+
+.texto-cinza-medio {
+  color: #757575;
+}
+
+.texto-cinza-escuro {
+  color: #424242;
+}
+
+.responsavel {
+  margin-left: 3px;
+  line-height: 10px;
+}
+
+.descricao {
+  font-size: 20px;
+}
+
+.card-concluido {
+  background-color: #eaeaea;
+}
+
+.email-sugestao {
+  background-color: #b5d1ff;
+  margin-top: 7px;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.email-sugestao u {
+  cursor: pointer;
+}

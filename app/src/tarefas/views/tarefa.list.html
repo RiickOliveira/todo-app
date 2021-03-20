@@ -1,0 +1,58 @@
+<div class="page-tarefa">
+    <div flex class="header-buttons" layout="row" layout-align="space between">
+        <div>
+            <md-button ng-click="ctrl.geraTarefasAleatorias()" class="md-raised md-accent" ng-disabled="ctrl.possuiTarefaPendente()">
+                <!-- <md-icon class="icon-card-size" md-svg-icon="sad-face"></md-icon> -->
+                Estou sem tarefas :(
+            </md-button>
+        </div>
+        <div>
+            <md-switch ng-model="ctrl.exibeRealizadas">
+                Exibir também tarefas já realizadas
+            </md-switch>
+        </div>
+    </div>
+    <div>
+        <div class="list-tarefa">
+            <md-card class="card-tarefa" ng-class="{ 'card-concluido' : tarefa.concluida }" ng-repeat="tarefa in ctrl.tarefas | filter : ctrl.filtraTarefas">
+                <div layout="column">
+                    <div layout="row" layout-align="end end" class="mb-5">
+                        <div class="mr-10" ng-if="tarefa.reabertura > 2">
+                            <md-icon class="icon-card-size" md-svg-icon="exclamation"></md-icon>
+                            <md-tooltip>Esta tarefa não poderá mais voltar como pendente</md-tooltip>
+                        </div>
+                        <div>
+                            <md-icon ng-click="ctrl.removeTarefa(tarefa.id)" class="icon-card-size ml-10" md-svg-icon="trash"></md-icon>
+                        </div>
+                    </div>
+                    <div flex layout="row" layout-align="start center">
+                        <div flex="5">
+                            <md-checkbox ng-click="ctrl.verificaStatusTarefa(tarefa)" ng-model="tarefa.concluida"></md-checkbox>
+                        </div>
+                        <span flex class="texto-cinza-escuro descricao" ng-class="{ 'card-tarefa-concluido' : tarefa.concluida }">{{ tarefa.tarefa }}</span>
+                    </div>
+                    <div layout="row" class="user-detail mt-5" layout-align="space between">
+                        <div layout="row" >
+                                <md-icon class="icon-card-size" md-svg-icon="usuario"></md-icon>
+                                <div flex layout="row" layout-align="start end">
+                                    <span class="texto-cinza-medio responsavel">{{ tarefa.responsavel }}</span>
+                                </div>
+                        </div>
+                        <div>
+                            <span class="texto-cinza-medio">Email : {{tarefa.email}}</span>
+                        </div>
+                    </div>
+                </div>
+            </md-card>
+
+            <div flex layout="column" ng-if="!ctrl.tarefas.length && !ctrl.carregando" class="mt-100">
+                <md-icon class="icon-tarefa-size" md-svg-icon="annulled-face"></md-icon>
+                <span class="text-center mt-15">Acho que você pode tirar uma soneca ... </span>
+            </div>
+            
+            <div layout="row" class="mt-50" ng-if="ctrl.carregando" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+        </div>
+    </div>
+</div>
